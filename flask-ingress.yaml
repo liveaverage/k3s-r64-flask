@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flask-ingress-generic
+spec:
+  rules:
+    - host: flask.192.168.1.222.xip.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: flask-blue
+              servicePort: 8080
+          - path: /
+            backend:
+              serviceName: flask-green
+              servicePort: 8080
