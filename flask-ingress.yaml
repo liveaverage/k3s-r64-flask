@@ -2,6 +2,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: flask-ingress-generic
+  annotations:
+        traefik.ingress.kubernetes.io/service-weights: |-
+          flask-blue: 70.0
+          flask-green: 30.0
 spec:
   rules:
     - host: flask.192.168.1.222.xip.io
