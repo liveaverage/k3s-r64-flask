@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-web-ui
+  namespace: kube-system
+spec:
+  rules:
+  - host: traefik.192.168.1.222.xip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: traefik
+          servicePort: 8880
